@@ -1,0 +1,16 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model LineClickLog {
+  id           Int       @id @default(autoincrement())
+  userId       String
+  richMenuId   String
+  actionKey    String
+  timestamp    DateTime  @default(now())
+}
